@@ -18,25 +18,15 @@ details summary{font-size:13px;font-weight:600;cursor:pointer;padding:7px 0}.tin
 #scanArea video{width:100%;border-radius:10px;background:#111;max-height:250px;object-fit:cover}#receiptPreview{max-width:100%;max-height:180px;border-radius:8px;display:none;margin-top:8px}
 @media(min-width:600px){main{padding-top:22px}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}.stats{gap:12px}}* {
 
-  box-sizing: border-box;
+  input[type="date"] {
 
-}
-
-input,
-
-select,
-
-textarea {
-
-  max-width: 100%;
+  width: 0;
 
   min-width: 0;
 
-}
+  max-width: 100%;
 
-input[type="date"] {
-
-  width: 100%;
+  flex: 1 1 0;
 
   display: block;
 
