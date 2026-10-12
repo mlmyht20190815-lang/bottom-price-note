@@ -96,7 +96,25 @@ const $=id=>document.getElementById(id);
 const yen=n=>'¥'+Number(n||0).toLocaleString('ja-JP');
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const today=()=>new Date().toLocaleDateString('sv-SE');
-function save(){localStorage.setItem(KEY,JSON.stringify(db));render()}
+function save(){
+
+  try {
+
+    localStorage.setItem(KEY, JSON.stringify(db));
+
+    render();
+
+    return true;
+
+  } catch (e) {
+
+    alert('保存できませんでした。空き容量やブラウザの設定を確認してください。バックアップを復元できるよう、ページを閉じずに操作を止めてください。');
+
+    return false;
+
+  }
+
+}
 function productById(id){return db.products.find(p=>p.id===id)}
 function storeById(id){return db.stores.find(s=>s.id===id)}
 function setTab(name){document.querySelectorAll('.tab').forEach(b=>b.classList.toggle('active',b.dataset.tab===name));document.querySelectorAll('.panel').forEach(p=>p.classList.toggle('active',p.id===name))}
